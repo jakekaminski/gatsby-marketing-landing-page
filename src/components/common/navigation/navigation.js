@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import Scrollspy from "react-scrollspy"
 import { Menu, X } from "react-feather"
+import Logo from "./logo"
 
 import { Container } from "../../global"
 import {
@@ -18,6 +19,7 @@ import {
 const NAV_ITEMS = ["Features", "Product", "Pricing", ""]
 
 export default class Navigation extends Component {
+
   state = {
     mobileMenuOpen: false,
     hasScrolled: false,
@@ -77,7 +79,7 @@ export default class Navigation extends Component {
           <Brand>
             <Scrollspy offset={-64} item={["top"]} currentClassName="active">
               <AnchorLink href="#top" onClick={this.closeMobileMenu}>
-                Finance
+                <Logo/>
               </AnchorLink>
             </Scrollspy>
           </Brand>
@@ -96,7 +98,7 @@ export default class Navigation extends Component {
 
           <Mobile hide>{this.getNavList({})}</Mobile>
           <ActionsContainer>
-            <button>Sign up</button>
+            <button>Contact Us</button>
           </ActionsContainer>
         </StyledContainer>
         <Mobile>

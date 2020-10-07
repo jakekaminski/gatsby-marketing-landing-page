@@ -14,7 +14,7 @@ const GlobalStyles = createGlobalStyle`
   }
   
   body {
-    font-family: ${props => props.theme.font.primary};
+    font-family: ${props => props.theme.font.secondary};
   }
 
   
@@ -41,10 +41,12 @@ const GlobalStyles = createGlobalStyle`
   h5 {
     ${props => props.theme.font_size.xsmall};
     font-family: ${props => props.theme.font.normal};
+    font-weight: normal;
   }
 
   p {
     ${props => props.theme.font_size.small};
+    font-family: ${props => props.theme.font.normal}
     line-height: 22px;
 
   }

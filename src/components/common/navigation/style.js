@@ -94,11 +94,16 @@ export const ActionsContainer = styled.div`
     font-family: ${props => props.theme.font.normal};
     ${props => props.theme.font_size.xsmall};
     color: white;
-    background: #098b8c;
-    border-radius: 4px;
-    padding: 10px 16px;
+    background: ${props => props.theme.color.secondary};
+    border-radius: 40px;
+    padding: 12px 50px;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 14px;
+    transition: 0.2s ease-out;
+    &:hover {
+      background: ${props => props.theme.color.accent};
+      box-shadow: rgba(110, 120, 152, 0.22) 0px 2px 10px 0px;
+    }
   }
 `
 

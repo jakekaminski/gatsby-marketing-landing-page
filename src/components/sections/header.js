@@ -2,10 +2,14 @@ import React from "react"
 import styled from "styled-components"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
+import { ArrowDown } from "react-feather"
+import typingGif from "../../images/typing.gif"
+import Animation from "../common/animation"
 
 import { Container } from "../global"
 
 const Header = () => {
+
   const data = useStaticQuery(graphql`
     query {
       file(sourceInstanceName: { eq: "product" }, name: { eq: "green-skew" }) {
@@ -27,19 +31,17 @@ const Header = () => {
       <Container>
         <Flex>
           <HeaderTextGroup>
-            <Subtitle>Personal Finance</Subtitle>
             <h1>
-              All your money,
-              <br />
-              one account
+              Your
+              <br /><Gif src={typingGif} alt="Letters typing business" />
+              Online
             </h1>
-            <h2>
-              We're building next generation personal finance tools. Sign up to
-              get early access.
-            </h2>
+            <h5>
+            Whatever you do, whatever you love, Creative Sites makes it happen.
+            </h5>
             <HeaderForm onSubmit={handleSubmit}>
               <HeaderInput placeholder="Your email" />
-              <HeaderButton>Early access</HeaderButton>
+              <HeaderButton>Talk to Us<ArrowDown/></HeaderButton>
             </HeaderForm>
             <FormSubtitle>
               Already have a beta account?{" "}
@@ -47,7 +49,7 @@ const Header = () => {
             </FormSubtitle>
           </HeaderTextGroup>
           <ImageWrapper>
-            <StyledImage fluid={data.file.childImageSharp.fluid} />
+          <Animation />
             <br />
           </ImageWrapper>
         </Flex>
@@ -59,7 +61,7 @@ const Header = () => {
 export default Header
 
 const HeaderWrapper = styled.header`
-  background-color: #f8f8f8;
+  background-color: ${props => props.theme.color.background.light};
   padding: 160px 0 80px 0;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
@@ -87,7 +89,7 @@ const HeaderTextGroup = styled.div`
 
   h1 {
     margin: 0 0 24px;
-    color: ${props => props.theme.color.primary};
+    color: ${props => props.theme.color.black.regular};
   }
 
   h2 {
@@ -109,6 +111,13 @@ const Flex = styled.div`
     grid-template-columns: 1fr;
     grid-gap: 64px;
   }
+`
+const Gif = styled.img`
+  position: absolute;
+  left: 325px;
+  top: 125px;
+  z-index: -1000;
+  width: 358px;
 `
 
 const HeaderForm = styled.form`
@@ -161,12 +170,15 @@ const HeaderInput = styled.input`
 `
 
 const HeaderButton = styled.button`
+  font-family: ${props => props.theme.font.secondary};
   font-weight: 500;
   font-size: 14px;
   color: white;
   letter-spacing: 1px;
   height: 60px;
-  display: block;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   margin-left: 8px;
   text-transform: uppercase;
   cursor: pointer;
