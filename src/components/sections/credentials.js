@@ -18,6 +18,7 @@ const Credentials = (props) => (
 
 export default Credentials
 
+
 const StyledContainer = styled(Container)``
 
 const CredentialsGrid = styled.div`
@@ -33,9 +34,9 @@ const CredentialsGrid = styled.div`
   }
 `
 
-const CredentialsLogo = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`
+// const CredentialsLogo = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: column;
+// `

@@ -29,6 +29,7 @@ const theme = {
     background: {
       white: "#ffffff",
       light: "#FBFBFB",
+      dark: "#5D5C5D",
     },
     white: {
       regular: "#ffffff",

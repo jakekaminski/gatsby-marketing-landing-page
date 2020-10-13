@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql, useStaticQuery, Link } from "gatsby"
-import Img from "gatsby-image"
+import { Link } from "gatsby"
 import { ArrowDown } from "react-feather"
 import typingGif from "../../images/typing.gif"
 import Lottie from "../common/lottie"
@@ -9,18 +8,6 @@ import Lottie from "../common/lottie"
 import { Container } from "../global"
 
 const Header = () => {
-
-  const data = useStaticQuery(graphql`
-    query {
-      file(sourceInstanceName: { eq: "product" }, name: { eq: "green-skew" }) {
-        childImageSharp {
-          fluid(maxWidth: 1000) {
-            ...GatsbyImageSharpFluid_tracedSVG
-          }
-        }
-      }
-    }
-  `)
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -67,12 +54,6 @@ const HeaderWrapper = styled.header`
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
   @media (max-width: ${props => props.theme.screen.md}) {
   }
-`
-const Subtitle = styled.h5`
-  font-size: 16px;
-  color: ${props => props.theme.color.accent};
-  letter-spacing: 0px;
-  margin-bottom: 16px;
 `
 
 const HeaderTextGroup = styled.div`
@@ -205,16 +186,5 @@ const ImageWrapper = styled.div`
   align-self: center;
   @media (max-width: ${props => props.theme.screen.md}) {
     justify-self: center;
-  }
-`
-
-const StyledImage = styled(Img)`
-  width: 500px;
-  @media (max-width: ${props => props.theme.screen.md}) {
-    width: 400px;
-  }
-  @media (max-width: ${props => props.theme.screen.sm}) {
-    width: 300px;
-    display: none;
   }
 `

@@ -38,6 +38,8 @@ export const Section = styled.section`
         return props.theme.color.white.dark
       case "main":
         return props.theme.color.primary
+      case "dark":
+        return props.theme.color.background.dark
       default:
         return "white"
     }
@@ -46,12 +48,4 @@ export const Section = styled.section`
   @media (max-width: ${props => props.theme.screen.md}) {
     padding: 80px 0;
   }
-
-  ${props =>
-    props.accent &&
-    `background-color: ${
-      props.accent === "secondary"
-        ? props.theme.color.white.dark
-        : props.theme.color.primary
-    }`};
 `

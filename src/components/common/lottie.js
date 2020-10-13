@@ -1,7 +1,6 @@
 import React from 'react';
 import '@lottiefiles/lottie-player';
 import { create } from '@lottiefiles/lottie-interactivity';
-import Develop from "../../animations/develop.json"
 
 class Lottie extends React.Component {
   constructor(props) {

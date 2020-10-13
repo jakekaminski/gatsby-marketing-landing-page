@@ -35,12 +35,12 @@ const GlobalStyles = createGlobalStyle`
 
   h4 {
     ${props => props.theme.font_size.large};
-    font-family: ${props => props.theme.font.bold};
+    font-family: ${props => props.theme.font.semibold};
   }
 
   h5 {
-    ${props => props.theme.font_size.xsmall};
-    font-family: ${props => props.theme.font.normal};
+    ${props => props.theme.font_size.regular};
+    font-family: ${props => props.theme.font.medium};
     font-weight: normal;
   }
 

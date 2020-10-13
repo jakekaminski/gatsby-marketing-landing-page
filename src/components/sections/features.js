@@ -4,44 +4,33 @@ import styled from "styled-components"
 import { Section, Container } from "../global"
 
 const Features = () => (
-  <Section id="features">
+  <Section id="features" accent="dark">
     <StyledContainer>
       <Subtitle>Features</Subtitle>
-      <SectionTitle>Smart money management</SectionTitle>
+      <SectionTitle>What can we do for you?</SectionTitle>
       <FeaturesGrid>
         <FeatureItem>
-          <FeatureTitle>Notifications</FeatureTitle>
+          <FeatureTitle>Web Design</FeatureTitle>
           <FeatureText>
-            Receive budget and spending alerts based on your favorite triggers.
+            Paint your ideas into meaningful, stunning content that captures your audience.
           </FeatureText>
         </FeatureItem>
         <FeatureItem>
-          <FeatureTitle>Security</FeatureTitle>
+          <FeatureTitle>Web Development</FeatureTitle>
           <FeatureText>
-            Your data is always safe with us as we use the latest security
-            protocols.
+            Transform designs and prototypes into digital experiences like no other.
           </FeatureText>
         </FeatureItem>
         <FeatureItem>
-          <FeatureTitle>Automation</FeatureTitle>
+          <FeatureTitle>Custom CMS</FeatureTitle>
           <FeatureText>
-            Create smart automated workflows and triggers for your money.
+            Control what your customers see with our very own content management system.
           </FeatureText>
         </FeatureItem>
         <FeatureItem>
-          <FeatureTitle>Aggregation</FeatureTitle>
+          <FeatureTitle>Ongoing Support</FeatureTitle>
           <FeatureText>
-            Easily link up to 5 banks to your finance account.
-          </FeatureText>
-        </FeatureItem>
-        <FeatureItem>
-          <FeatureTitle>Payments</FeatureTitle>
-          <FeatureText>Send money to friends and family with ease.</FeatureText>
-        </FeatureItem>
-        <FeatureItem>
-          <FeatureTitle>Rewards</FeatureTitle>
-          <FeatureText>
-            High interest and rewards for hitting your goals.
+            Have peace of mind knowing our expertise is only a phone call away.
           </FeatureText>
         </FeatureItem>
       </FeaturesGrid>
@@ -54,7 +43,7 @@ export default Features
 const StyledContainer = styled(Container)``
 
 const SectionTitle = styled.h3`
-  color: ${props => props.theme.color.primary};
+  color: ${props => props.theme.color.white.regular};
   display: flex;
   justify-content: center;
   margin: 0 auto 40px;
@@ -83,19 +72,24 @@ const FeaturesGrid = styled.div`
 `
 
 const FeatureItem = styled.div`
+  background-color: ${props => props.theme.color.primary};
+  border-radius: 20px;
+  drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.1));
+  padding: 0 30px;
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
+  text-align: left;
 `
 
-const FeatureTitle = styled.h4`
-  color: ${props => props.theme.color.primary};
+const FeatureTitle = styled.h5`
+  color: ${props => props.theme.color.white.regular};
   letter-spacing: 0px;
   line-height: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 `
 
 const FeatureText = styled.p`
-  text-align: center;
+color: ${props => props.theme.color.white.darker};
+margin-top: 0;
 `

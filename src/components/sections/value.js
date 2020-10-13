@@ -1,30 +1,12 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql, useStaticQuery, Link } from "gatsby"
-import Img from "gatsby-image"
 import { ArrowDown } from "react-feather"
-import Lottie from "../common/lottie"
+import '@lottiefiles/lottie-player';
+import { create } from '@lottiefiles/lottie-interactivity';
 
 import { Container } from "../global"
 
 const Value = () => {
-
-  const data = useStaticQuery(graphql`
-    query {
-      file(sourceInstanceName: { eq: "product" }, name: { eq: "green-skew" }) {
-        childImageSharp {
-          fluid(maxWidth: 1000) {
-            ...GatsbyImageSharpFluid_tracedSVG
-          }
-        }
-      }
-    }
-  `)
-
-  const handleSubmit = event => {
-    event.preventDefault()
-  }
-
   return (
     <ValueWrapper id="top">
       <Container>
@@ -50,6 +32,41 @@ const Value = () => {
 
 export default Value
 
+class Lottie extends React.Component {
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef(); // 1. create a reference for the lottie player
+  }
+  componentDidMount() {
+    // 3. listen for player load. see lottie player repo for other events
+    this.myRef.current.addEventListener('load', function (e) {
+      // 4. configure the interactivity library
+      create({
+        mode: 'scroll',
+        player: '#valueLottie',
+        actions: [
+          {
+            visibility: [0, 1],
+            type: 'seek',
+            frames: [0, 100],
+          },
+        ],
+      });
+    });
+  }
+  render() {
+    return (
+        <lottie-player
+          ref={this.myRef} // 2. set the reference for the player
+          id="valueLottie"
+          mode="normal"
+          src={this.props.src}
+          style={{ width: '600px', height: '600px' }}
+        ></lottie-player>
+    );
+  }
+}
+
 const ValueWrapper = styled.div`
   background-color: ${props => props.theme.color.background.light};
   padding: 160px 0 80px 0;
@@ -57,12 +74,6 @@ const ValueWrapper = styled.div`
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
   @media (max-width: ${props => props.theme.screen.md}) {
   }
-`
-const Subtitle = styled.h5`
-  font-size: 16px;
-  color: ${props => props.theme.color.accent};
-  letter-spacing: 0px;
-  margin-bottom: 16px;
 `
 
 const ValueTextGroup = styled.div`
@@ -139,16 +150,5 @@ const ImageWrapper = styled.div`
   align-self: center;
   @media (max-width: ${props => props.theme.screen.md}) {
     justify-self: center;
-  }
-`
-
-const StyledImage = styled(Img)`
-  width: 500px;
-  @media (max-width: ${props => props.theme.screen.md}) {
-    width: 400px;
-  }
-  @media (max-width: ${props => props.theme.screen.sm}) {
-    width: 300px;
-    display: none;
   }
 `
