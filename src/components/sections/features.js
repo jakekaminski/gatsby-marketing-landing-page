@@ -1,44 +1,65 @@
 import React from "react"
 import styled from "styled-components"
+import DesignSvg from "../../images/features/Tilda_Icons_21re_design.svg"
+import DevSvg from "../../images/features/Tilda_Icons_19ad_web_design.svg"
+import CMSSvg from "../../images/features/Tilda_Icons_19ad_design.svg"
+import SupportSvg from "../../images/features/Tilda_Icons_2web_handsfree.svg"
 
 import { Section, Container } from "../global"
 
 const Features = () => (
-  <Section id="features" accent="dark">
+  <StyledSection id="features" accent="dark">
     <StyledContainer>
       <Subtitle>Features</Subtitle>
       <SectionTitle>What can we do for you?</SectionTitle>
       <FeaturesGrid>
         <FeatureItem>
-          <FeatureTitle>Web Design</FeatureTitle>
-          <FeatureText>
-            Paint your ideas into meaningful, stunning content that captures your audience.
-          </FeatureText>
+          <FeatureImg src={DesignSvg} alt="" />
+          <FeatureContent>
+            <FeatureTitle>Web Design</FeatureTitle>
+            <FeatureText>
+              Paint your ideas into meaningful, stunning content that captures your audience.
+            </FeatureText>
+          </FeatureContent>
         </FeatureItem>
         <FeatureItem>
-          <FeatureTitle>Web Development</FeatureTitle>
-          <FeatureText>
-            Transform designs and prototypes into digital experiences like no other.
-          </FeatureText>
+          <FeatureImg src={DevSvg} alt="" />
+          <FeatureContent>
+            <FeatureTitle>Web Development</FeatureTitle>
+            <FeatureText>
+              Transform designs and prototypes into digital experiences like no other.
+            </FeatureText>
+          </FeatureContent>
         </FeatureItem>
         <FeatureItem>
-          <FeatureTitle>Custom CMS</FeatureTitle>
-          <FeatureText>
-            Control what your customers see with our very own content management system.
-          </FeatureText>
+          <FeatureImg src={CMSSvg} alt="" />
+          <FeatureContent>
+            <FeatureTitle>Custom CMS</FeatureTitle>
+            <FeatureText>
+              Control what your customers see with our very own content management system.
+            </FeatureText>
+          </FeatureContent>
         </FeatureItem>
         <FeatureItem>
-          <FeatureTitle>Ongoing Support</FeatureTitle>
-          <FeatureText>
-            Have peace of mind knowing our expertise is only a phone call away.
-          </FeatureText>
+          <FeatureImg src={SupportSvg} alt="" />
+          <FeatureContent>
+            <FeatureTitle>Ongoing Support</FeatureTitle>
+            <FeatureText>
+              Have peace of mind knowing our expertise is only a phone call away.
+            </FeatureText>
+          </FeatureContent>
         </FeatureItem>
       </FeaturesGrid>
     </StyledContainer>
-  </Section>
+  </StyledSection>
 )
 
 export default Features
+
+const StyledSection = styled(Section)`
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
+`
 
 const StyledContainer = styled(Container)``
 
@@ -59,15 +80,13 @@ const Subtitle = styled.h5`
 `
 
 const FeaturesGrid = styled.div`
-  max-width: 670px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin: 0px auto;
   grid-column-gap: 40px;
   grid-row-gap: 35px;
-  @media (max-width: ${props => props.theme.screen.sm}) {
+  @media (max-width: ${props => props.theme.screen.md}) {
     grid-template-columns: 1fr;
-    padding: 0 64px;
   }
 `
 
@@ -75,21 +94,32 @@ const FeatureItem = styled.div`
   background-color: ${props => props.theme.color.primary};
   border-radius: 20px;
   drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.1));
-  padding: 0 30px;
+  padding: 15px 30px;
   display: flex;
   justify-content: center;
+  flex-direction: row;
+  text-align: left;
+`
+const FeatureContent = styled.div`
+  display: flex;
+  align-items: left;
   flex-direction: column;
   text-align: left;
+  margin-left: 10px;
 `
 
 const FeatureTitle = styled.h5`
   color: ${props => props.theme.color.white.regular};
   letter-spacing: 0px;
   line-height: 30px;
-  margin-bottom: 8px;
+  margin: 8px 0;
 `
 
 const FeatureText = styled.p`
+${props => props.theme.font_size.xsmall};
 color: ${props => props.theme.color.white.darker};
 margin-top: 0;
+`
+
+const FeatureImg = styled.img`
 `
