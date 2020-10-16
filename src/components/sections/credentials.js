@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import { Section, Container } from "../global"
 
 const Credentials = (props) => (
-  <Section id="credentials" accent="main">
+  <StyledSection id="credentials" accent="main">
     <StyledContainer>
       <CredentialsGrid>
       {props.logos.map(({ node }) => {
@@ -13,11 +13,14 @@ const Credentials = (props) => (
       })}    
       </CredentialsGrid>
     </StyledContainer>
-  </Section>
+  </StyledSection>
 )
 
 export default Credentials
 
+const StyledSection = styled(Section)`
+  z-index: 1000;
+`
 
 const StyledContainer = styled(Container)``
 

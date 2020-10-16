@@ -1,39 +1,27 @@
 import React from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
 import { ArrowDown } from "react-feather"
 import typingGif from "../../images/typing.gif"
 import Lottie from "../common/lottie"
+import AnchorLink from "react-anchor-link-smooth-scroll"
 
 import { Container } from "../global"
 
 const Header = () => {
-
-  const handleSubmit = event => {
-    event.preventDefault()
-  }
-
   return (
     <HeaderWrapper id="top">
       <Container>
         <Flex>
           <HeaderTextGroup>
             <h1>
-              Your
-              <br /><Gif src={typingGif} alt="Letters typing business" />
+              Your <span><Gif src={typingGif} alt="Letters typing business" /></span>
+              <br />
               Online
             </h1>
             <h5>
             Whatever you do, whatever you love, Creative Sites makes it happen.
             </h5>
-            <HeaderForm onSubmit={handleSubmit}>
-              <HeaderInput placeholder="Your email" />
-              <HeaderButton>Talk to Us<ArrowDown/></HeaderButton>
-            </HeaderForm>
-            <FormSubtitle>
-              Already have a beta account?{" "}
-              <FormSubtitleLink to="/">Sign in</FormSubtitleLink>
-            </FormSubtitle>
+            <Anchor href="#cta"><HeaderButton>Talk to Us<ArrowDown/></HeaderButton></Anchor>
           </HeaderTextGroup>
           <ImageWrapper>
           <Lottie src="https://assets4.lottiefiles.com/packages/lf20_vEfHlN.json"/>
@@ -51,7 +39,6 @@ const HeaderWrapper = styled.header`
   background-color: ${props => props.theme.color.background.light};
   padding: 160px 0 80px 0;
   position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
   @media (max-width: ${props => props.theme.screen.md}) {
   }
 `
@@ -81,6 +68,9 @@ const HeaderTextGroup = styled.div`
   p {
     margin-bottom: 48px;
   }
+  span {
+    height: 80px; 
+  }
 `
 
 const Flex = styled.div`
@@ -94,60 +84,14 @@ const Flex = styled.div`
   }
 `
 const Gif = styled.img`
-  position: absolute;
-  left: 325px;
-  top: 125px;
+  vertical-align: middle;
+  display: inline-block;
   z-index: -1000;
   width: 358px;
 `
 
-const HeaderForm = styled.form`
-  display: flex;
-  flex-direction: row;
-  padding-bottom: 16px;
-
-  @media (max-width: ${props => props.theme.screen.sm}) {
-    flex-direction: column;
-  }
-`
-
-const FormSubtitle = styled.span`
-  ${props => props.theme.font_size.xxsmall}
-`
-
-const FormSubtitleLink = styled(Link)`
-  color: ${props => props.theme.color.secondary};
-  padding-bottom: 1px;
-  margin-left: 8px;
+const Anchor = styled(AnchorLink)`
   text-decoration: none;
-  border-bottom: 1px solid ${props => props.theme.color.secondary};
-`
-
-const HeaderInput = styled.input`
-  font-weight: 500;
-  font-size: 16px;
-  color: ${props => props.theme.color.primary};
-  line-height: 42px;
-  width: 100%;
-  text-align: left;
-  height: 60px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: ${props => props.theme.color.secondary};
-  border-image: initial;
-  border-radius: 4px;
-  padding: 8px 16px;
-  outline: 0px;
-  &:focus {
-    box-shadow: inset ${props => props.theme.color.secondary} 0px 0px 0px 2px;
-  }
-  @media (max-width: ${props => props.theme.screen.md}) {
-    margin-bottom: 8px;
-  }
-  @media (max-width: ${props => props.theme.screen.sm}) {
-    display: block;
-    width: 100%;
-  }
 `
 
 const HeaderButton = styled.button`
@@ -162,10 +106,11 @@ const HeaderButton = styled.button`
   align-items: center;
   margin-left: 8px;
   text-transform: uppercase;
+  text-decoration: none;
   cursor: pointer;
   white-space: nowrap;
   background: ${props => props.theme.color.secondary};
-  border-radius: 4px;
+  border-radius: 40px;
   padding: 0px 40px;
   border-width: 0px;
   border-style: initial;
@@ -173,6 +118,8 @@ const HeaderButton = styled.button`
   border-image: initial;
   outline: 0px;
   &:hover {
+    transition: 0.2s ease-out;
+    background: ${props => props.theme.color.accent};
     box-shadow: rgba(110, 120, 152, 0.22) 0px 2px 10px 0px;
   }
   @media (max-width: ${props => props.theme.screen.md}) {

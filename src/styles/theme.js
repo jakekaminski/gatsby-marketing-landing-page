@@ -30,6 +30,7 @@ const theme = {
       white: "#ffffff",
       light: "#FBFBFB",
       dark: "#5D5C5D",
+      darker: "#111111",
     },
     white: {
       regular: "#ffffff",

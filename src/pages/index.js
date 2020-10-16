@@ -10,8 +10,8 @@ import Credentials from "../components/sections/credentials"
 import Value from "../components/sections/value"
 import Features from "../components/sections/features"
 import Quote from "../components/sections/quote"
+import CTA from "../components/sections/cta"
 import Footer from "../components/sections/footer"
-import GetStarted from "../components/sections/getstarted"
 
 const IndexPage = ({data}) => (
   <Layout>
@@ -22,7 +22,7 @@ const IndexPage = ({data}) => (
     <Value />
     <Features />
     <Quote mockup={data.mockup.childImageSharp.fluid} />
-    <GetStarted />
+    <CTA />
     <Footer />
   </Layout>
 )
@@ -43,9 +43,9 @@ export const query = graphql`
         }
       }
     }
-    mockup: file(relativePath: { eq: "mockup.png" }) {
+    mockup: file(relativePath: {eq: "mockup.png"}) {
       childImageSharp {
-        fluid(maxWidth: 240, quality: 100) {
+        fluid(maxWidth: 400, quality: 100) {
           ...GatsbyImageSharpFluid
         }
       }

@@ -10,7 +10,7 @@ import { Section, Container } from "../global"
 const Features = () => (
   <StyledSection id="features" accent="dark">
     <StyledContainer>
-      <Subtitle>Features</Subtitle>
+      <Subtitle>Our Services</Subtitle>
       <SectionTitle>What can we do for you?</SectionTitle>
       <FeaturesGrid>
         <FeatureItem>
@@ -58,7 +58,6 @@ export default Features
 
 const StyledSection = styled(Section)`
   position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
 `
 
 const StyledContainer = styled(Container)``
@@ -91,6 +90,7 @@ const FeaturesGrid = styled.div`
 `
 
 const FeatureItem = styled.div`
+  min-height: 144px;
   background-color: ${props => props.theme.color.primary};
   border-radius: 20px;
   drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.1));
@@ -103,6 +103,7 @@ const FeatureItem = styled.div`
 const FeatureContent = styled.div`
   display: flex;
   align-items: left;
+  justify-content: center;
   flex-direction: column;
   text-align: left;
   margin-left: 10px;

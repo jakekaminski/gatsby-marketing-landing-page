@@ -55,6 +55,13 @@ const GlobalStyles = createGlobalStyle`
     font-family: ${props => props.theme.font.normal};
   }
 
+  button {
+    font-family: ${props => props.theme.font.normal};
+    ${props => props.theme.font_size.xsmall};
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
   @media (max-width: ${props => props.theme.screen.sm}) {
     h1 {
       ${props => props.theme.font_size.larger};
