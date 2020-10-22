@@ -4,8 +4,28 @@ import DesignSvg from "../../images/features/Tilda_Icons_21re_design.svg"
 import DevSvg from "../../images/features/Tilda_Icons_19ad_web_design.svg"
 import CMSSvg from "../../images/features/Tilda_Icons_19ad_design.svg"
 import SupportSvg from "../../images/features/Tilda_Icons_2web_handsfree.svg"
+import Diamond from "../../images/diamond.svg"
 
 import { Section, Container } from "../global"
+
+const StyledDiamond = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  text-align: center;
+  &:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+  }
+  > img {
+    vertical-align: middle;
+  }
+`
 
 const Features = () => (
   <StyledSection id="features" accent="dark">
@@ -13,6 +33,7 @@ const Features = () => (
       <Subtitle>Our Services</Subtitle>
       <SectionTitle>What can we do for you?</SectionTitle>
       <FeaturesGrid>
+      <StyledDiamond><img src={Diamond} alt=""/></StyledDiamond>
         <FeatureItem>
           <FeatureImg src={DesignSvg} alt="" />
           <FeatureContent>
@@ -48,7 +69,7 @@ const Features = () => (
               Have peace of mind knowing our expertise is only a phone call away.
             </FeatureText>
           </FeatureContent>
-        </FeatureItem>
+        </FeatureItem> 
       </FeaturesGrid>
     </StyledContainer>
   </StyledSection>
@@ -79,6 +100,7 @@ const Subtitle = styled.h5`
 `
 
 const FeaturesGrid = styled.div`
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin: 0px auto;
@@ -93,13 +115,15 @@ const FeatureItem = styled.div`
   min-height: 144px;
   background-color: ${props => props.theme.color.primary};
   border-radius: 20px;
-  drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.1));
+  box-shadow: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.1));
   padding: 15px 30px;
   display: flex;
   justify-content: center;
   flex-direction: row;
   text-align: left;
+  z-index: 10;
 `
+
 const FeatureContent = styled.div`
   display: flex;
   align-items: left;

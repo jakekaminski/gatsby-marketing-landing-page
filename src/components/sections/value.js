@@ -62,7 +62,7 @@ class Lottie extends React.Component {
           id="valueLottie"
           mode="normal"
           src={this.props.src}
-          style={{ width: '600px', height: '600px' }}
+          style={{ width: this.width, height: this.height }}
         ></lottie-player>
     );
   }
@@ -70,9 +70,10 @@ class Lottie extends React.Component {
 
 const ValueWrapper = styled.div`
   background-color: ${props => props.theme.color.background.light};
-  padding: 160px 0 80px 0;
+  padding: 10rem 0 5rem 0;
   position: relative;
-  @media (max-width: ${props => props.theme.screen.md}) {
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    padding: 6rem 0 3rem 0;
   }
 `
 

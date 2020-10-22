@@ -12,16 +12,17 @@ export default class Navigation extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll)
+    if (typeof window !== 'undefined') {window.addEventListener("scroll", this.handleScroll)};
   }
 
   handleScroll = event => {
-    const scrollTop = window.pageYOffset
-
-    if (scrollTop > 32) {
-      this.setState({ hasScrolled: true })
-    } else {
-      this.setState({ hasScrolled: false })
+    if (typeof window !== 'undefined') {
+      const scrollTop = window.pageYOffset
+      if (scrollTop > 32) {
+        this.setState({ hasScrolled: true })
+      } else {
+        this.setState({ hasScrolled: false })
+      }
     }
   }
 

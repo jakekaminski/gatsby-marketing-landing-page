@@ -37,9 +37,10 @@ export default Header
 
 const HeaderWrapper = styled.header`
   background-color: ${props => props.theme.color.background.light};
-  padding: 160px 0 80px 0;
+  padding: 10rem 0 5rem 0;
   position: relative;
-  @media (max-width: ${props => props.theme.screen.md}) {
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    padding: 8rem 0 4rem 0;
   }
 `
 
@@ -56,20 +57,21 @@ const HeaderTextGroup = styled.div`
   }
 
   h1 {
-    margin: 0 0 24px;
+    margin: 0 0 1.5rem;
     color: ${props => props.theme.color.black.regular};
+    vertical-align: baseline;
   }
 
-  h2 {
-    margin-bottom: 24px;
-    ${props => props.theme.font_size.regular}
+  h5 {
+    margin-bottom: 1.5rem;
   }
 
   p {
-    margin-bottom: 48px;
+    margin-bottom: 3rem;
   }
   span {
-    height: 80px; 
+    height: 80px;
+    vertical-align: middle;
   }
 `
 
@@ -84,10 +86,13 @@ const Flex = styled.div`
   }
 `
 const Gif = styled.img`
-  vertical-align: middle;
-  display: inline-block;
-  z-index: -1000;
   width: 358px;
+  vertical-align: middle;
+  margin-bottom: 20px;
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    width: 200px;
+    margin-bottom: 8px;
+  }
 `
 
 const Anchor = styled(AnchorLink)`

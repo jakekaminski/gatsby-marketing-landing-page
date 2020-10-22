@@ -36,7 +36,10 @@ const Footer = () => (
 
 const FooterWrapper = styled.footer`
   background-color: ${props => props.theme.color.background.darker};
-  padding: 80px;
+  padding: 4rem;
+  @media (max-width: ${props => props.theme.screen.sm}) {
+    padding: 2rem 1rem;
+  }
 `
 
 const Copyright = styled.a`
@@ -101,7 +104,7 @@ const FooterColumn = styled.div`
     }
   }
   @media (max-width: ${props => props.theme.screen.sm}) {
-    justify-content: center;
+    align-items: center;
   }
 `
 const FooterButton = styled.a`

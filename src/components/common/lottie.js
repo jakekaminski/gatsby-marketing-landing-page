@@ -1,16 +1,14 @@
 import React from 'react';
-import '@lottiefiles/lottie-player';
+import '@lottiefiles/lottie-player'
 import { create } from '@lottiefiles/lottie-interactivity';
 
 class Lottie extends React.Component {
   constructor(props) {
     super(props);
-    this.myRef = React.createRef(); // 1. create a reference for the lottie player
+    this.myRef = React.createRef();
   }
   componentDidMount() {
-    // 3. listen for player load. see lottie player repo for other events
     this.myRef.current.addEventListener('load', function (e) {
-      // 4. configure the interactivity library
       create({
         mode: 'scroll',
         player: '#firstLottie',
@@ -27,13 +25,13 @@ class Lottie extends React.Component {
   render() {
     return (
         <lottie-player
-          ref={this.myRef} // 2. set the reference for the player
+          ref={this.myRef}
           id="firstLottie"
           mode="normal"
           src={this.props.src}
-          style={{ width: '500px', height: '400px' }}
+          style={{ width: this.width, height: this.height }}
         ></lottie-player>
-    );
+    )
   }
 }
 

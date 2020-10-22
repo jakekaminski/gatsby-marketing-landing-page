@@ -75,6 +75,10 @@ const GlobalStyles = createGlobalStyle`
       ${props => props.theme.font_size.regular};
     }
 
+    h5 {
+      ${props => props.theme.font_size.small};
+    }
+
     p {
       ${props => props.theme.font_size.small};
     }
@@ -98,6 +102,9 @@ const GlobalStyles = createGlobalStyle`
     h4 {
       font-size: 22px;
       line-height: 24px;
+    }
+    h5 {
+      ${props => props.theme.font_size.small};
     }
     p {
 

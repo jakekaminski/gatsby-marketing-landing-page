@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import styled from "styled-components"
 
 import Layout from "../components/common/layout/layout"
 import SEO from "../components/common/layout/seo"
@@ -13,17 +14,23 @@ import Quote from "../components/sections/quote"
 import CTA from "../components/sections/cta"
 import Footer from "../components/sections/footer"
 
+const Wrapper = styled.div`
+  overflow-x: hidden;
+`
+
 const IndexPage = ({data}) => (
   <Layout>
-    <SEO title="Home" />
-    <Navigation />
-    <Header />
-    <Credentials logos={data.logos.edges} />
-    <Value />
-    <Features />
-    <Quote mockup={data.mockup.childImageSharp.fluid} />
-    <CTA />
-    <Footer />
+    <Wrapper>
+      <SEO title="Home" />
+      <Navigation />
+      <Header />
+      <Credentials logos={data.logos.edges} />
+      <Value />
+      <Features />
+      <Quote mockup={data.mockup.childImageSharp.fluid} />
+      <CTA />
+      <Footer />
+    </Wrapper>
   </Layout>
 )
 
