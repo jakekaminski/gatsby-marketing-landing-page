@@ -1,6 +1,5 @@
 import React, { useState, useEffect, createRef } from "react"
 import lottie from "lottie-web"
-import '@lottiefiles/lottie-player'
 import animation from "../../animations/develop.json"
 
 const Animation = () => {

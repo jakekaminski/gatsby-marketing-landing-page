@@ -1,31 +1,33 @@
-import React, { Component } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import Logo from "./logo"
 
 import { Container } from "../../global"
-export default class Navigation extends Component {
 
-  state = {
-    hasScrolled: false,
-  }
+const Navigation = () => {
+  // determined if page has scrolled and if the view is on mobile
+  const [scrolled, setScrolled] = useState(false);
 
-  handleScroll = event => {
-    const scrollTop = window.pageYOffset
-    if (scrollTop > 32) {
-      this.setState({ hasScrolled: true })
-    } else {
-      this.setState({ hasScrolled: false })
-    }
-  }
+  // change state on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 32;
+      if (isScrolled !== scrolled) {
+        setScrolled(!scrolled);
+      }
+    };
 
-  componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll);
-  }
+    document.addEventListener('scroll', handleScroll, { passive: true });
 
-  render() {
-    return (
-      <Nav {...this.props} scrolled={this.state.hasScrolled}>
+    return () => {
+      // clean up the event handler when the component unmounts
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolled]);
+
+  return (
+      <Nav data-active={scrolled}>
         <StyledContainer>
           <Brand>
             <AnchorLink href="#top">
@@ -39,15 +41,20 @@ export default class Navigation extends Component {
       </Nav>
     )
   }
-}
+
+export default Navigation;
+
 export const Nav = styled.nav`
-  padding: ${props => (props.scrolled ? `16px 0` : `24px 0`)};
+  padding: 24px 0;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
-  background: ${props => (props.scrolled ? `white` : null)};
   transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  &[data-active='true'] {
+    padding: 16px 0;
+    background: white;
+  }
 `
 
 export const StyledContainer = styled(Container)`

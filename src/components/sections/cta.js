@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import '@lottiefiles/lottie-player'
 import { Container } from "../global"
 import { useForm, Controller } from 'react-hook-form'
 import InputMask from 'react-input-mask'

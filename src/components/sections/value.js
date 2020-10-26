@@ -1,19 +1,18 @@
 import React from "react"
 import styled from "styled-components"
 import { ArrowDown } from "react-feather"
-import '@lottiefiles/lottie-player';
-import { create } from '@lottiefiles/lottie-interactivity';
-import AnchorLink from "react-anchor-link-smooth-scroll"
+import LottieWeb from '../common/lottie-web'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
+import DesignAnimation from '../../animations/design.json'
 
 import { Container } from "../global"
 
-const Value = () => {
-  return (
+const Value = () => (
     <ValueWrapper id="top">
       <Container>
         <Flex>
           <ImageWrapper>
-          <Lottie src="https://assets2.lottiefiles.com/packages/lf20_czeYL8.json"/>
+            <LottieWeb source={DesignAnimation}/>
           </ImageWrapper>
           <ValueTextGroup>
             <h1>
@@ -28,45 +27,9 @@ const Value = () => {
         </Flex>
       </Container>
     </ValueWrapper>
-  )
-}
+)
 
 export default Value
-
-class Lottie extends React.Component {
-  constructor(props) {
-    super(props);
-    this.myRef = React.createRef(); // 1. create a reference for the lottie player
-  }
-  componentDidMount() {
-    // 3. listen for player load. see lottie player repo for other events
-    this.myRef.current.addEventListener('load', function (e) {
-      // 4. configure the interactivity library
-      create({
-        mode: 'scroll',
-        player: '#valueLottie',
-        actions: [
-          {
-            visibility: [0, 1],
-            type: 'seek',
-            frames: [0, 100],
-          },
-        ],
-      });
-    });
-  }
-  render() {
-    return (
-        <lottie-player
-          ref={this.myRef} // 2. set the reference for the player
-          id="valueLottie"
-          mode="normal"
-          src={this.props.src}
-          style={{ width: this.width, height: this.height }}
-        ></lottie-player>
-    );
-  }
-}
 
 const ValueWrapper = styled.div`
   background-color: ${props => props.theme.color.background.light};

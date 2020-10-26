@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 import Layout from "../components/common/layout/layout"
 import SEO from "../components/common/layout/seo"
-import Navigation from "../components/common/navigation/navigation"
+import Navigation from "../components/common/navigation/nav"
 
 import Header from "../components/sections/header"
 import Credentials from "../components/sections/credentials"

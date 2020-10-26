@@ -2,8 +2,9 @@ import React from "react"
 import styled from "styled-components"
 import { ArrowDown } from "react-feather"
 import typingGif from "../../images/typing.gif"
-import Lottie from "../common/lottie"
+import LottieWeb from "../common/lottie-web"
 import AnchorLink from "react-anchor-link-smooth-scroll"
+import DevelopAnimation from "../../animations/develop.json"
 
 import { Container } from "../global"
 
@@ -24,7 +25,7 @@ const Header = () => {
             <Anchor href="#cta"><HeaderButton>Talk to Us<ArrowDown/></HeaderButton></Anchor>
           </HeaderTextGroup>
           <ImageWrapper>
-          <Lottie src="https://assets4.lottiefiles.com/packages/lf20_vEfHlN.json"/>
+            <LottieWeb source={DevelopAnimation}/>
             <br />
           </ImageWrapper>
         </Flex>

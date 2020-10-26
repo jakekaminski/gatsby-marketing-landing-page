@@ -1,13 +1,13 @@
 import React from "react"
+import LottieWeb from "../components/common/lottie-web"
 
 import Layout from "../components/common/layout/layout"
 import Footer from "../components/sections/footer"
 import styled from "styled-components"
 
 import SEO from "../components/common/layout/seo"
-import Lottie from 'lottie-react-web'
 import { Container, Section } from "../components/global"
-import animationData from "../animations/success.json"
+import SuccessAnimation from "../animations/success.json"
 
 const TextGroup = styled.div`
     text-align: center;
@@ -25,13 +25,12 @@ const SuccessPage = () => (
     <SEO title="Success" />
     <Container>
         <Section>
-            <Lottie
-                width="25%"
-                options={{
-                    animationData: animationData,
-                    loop: false
-                }}
+            <ImageWrapper>
+            <LottieWeb
+                source={SuccessAnimation}
+                loop="false"
             />
+            </ImageWrapper>
             <TextGroup>
                 <Header>Success!</Header>
                 <Subtitle>Your message has been received! We'll get back to you 2-5 business days!</Subtitle>
@@ -41,5 +40,13 @@ const SuccessPage = () => (
     <Footer />
   </Layout>
 )
+
+const ImageWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    > .animation-container {
+        width: 25%
+    }
+`
 
 export default SuccessPage
