@@ -22,7 +22,7 @@ const CTA = () => {
         },
       });
       reset();
-      if (typeof window !== 'undefined') {window.location.href = "/success"};
+      if (typeof window !== 'undefined') {window.location.href = "/success/index.html"};
       setSubmitted(true);
     } catch (error) {
         setError('submit', 'submitError', `Oops! ${error.message}`);
@@ -72,7 +72,11 @@ const CTA = () => {
         <CTAInputLabel htmlFor="email">Email</CTAInputLabel>
       </CTAInputGroup>
       <CTAInputGroup>
-          <CTAInput
+        <CTAErrorText />
+          <Controller
+            as={CTAInput}
+            control={control}
+            defaultValue=''
             type="tel" 
             name="phone" 
             id="phone" 

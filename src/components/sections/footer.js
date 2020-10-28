@@ -16,7 +16,7 @@ const Footer = () => (
         <FooterButton href="tel:309-454-6052"><Phone/><span>(309) 454-6052</span></FooterButton>
       </FooterColumn>
       <FooterColumn>
-        <span>Shoot us an email</span>
+        <span>Send us an email</span>
         <FooterButton href="mailto:sales@csm.cc"><Mail/><span>sales@csm.cc</span></FooterButton>
       </FooterColumn>
       <FooterColumn>

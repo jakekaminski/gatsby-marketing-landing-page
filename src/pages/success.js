@@ -45,7 +45,8 @@ const ImageWrapper = styled.div`
     display: flex;
     justify-content: center;
     > .animation-container {
-        width: 25%
+        width: 25%;
+        min-height: 11.25rem;
     }
 `
 

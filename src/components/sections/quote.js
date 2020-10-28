@@ -11,7 +11,7 @@ const Quote = () => {
   return(
     <StyledSection>
       <QuoteContainer>
-      <QuoteImg src={Mockup} alt="advanced agrilytics mobile website mockup" {... isMobile ? {dataSal: "slide-up", dataSalDuration: "0.3s", dataSalEasing: "ease-in"} : {} } />
+      <QuoteImg src={Mockup} alt="advanced agrilytics mobile website mockup" />
         <Blockquote>
           <QuoteTitle>“Creative Sites has completely transformed our public image and given us a real foothold in our market.”</QuoteTitle>
           <Subtitle>- Sean Arians, Advanced Agrilytics, Regional Business Manager</Subtitle>

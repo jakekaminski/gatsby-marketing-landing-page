@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 import Layout from "../components/common/layout/layout"
 import SEO from "../components/common/layout/seo"
-import Navigation from "../components/common/navigation/nav"
+import Navigation from "../components/common/nav"
 
 import Header from "../components/sections/header"
 import Credentials from "../components/sections/credentials"
@@ -21,13 +21,13 @@ const Wrapper = styled.div`
 const IndexPage = ({data}) => (
   <Layout>
     <Wrapper>
-      <SEO title="Home" />
-      <Navigation />
+      <SEO title="Creative Sites Media" />
+      <Navigation logo={data.brand.childImageSharp.fixed} />
       <Header />
       <Credentials logos={data.logos.edges} />
       <Value />
       <Features />
-      <Quote mockup={data.mockup.childImageSharp.fluid} />
+      <Quote />
       <CTA />
       <Footer />
     </Wrapper>
@@ -50,12 +50,12 @@ export const query = graphql`
         }
       }
     }
-    mockup: file(relativePath: {eq: "mockup.png"}) {
-      childImageSharp {
-        fluid(maxWidth: 400, quality: 100) {
-          ...GatsbyImageSharpFluid
+    brand: file(relativePath: {eq: "primary.png"}) {
+        childImageSharp {
+            fixed (width: 50){
+                ...GatsbyImageSharpFixed
+            }
         }
-      }
     }
   }
 `

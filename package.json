@@ -10,15 +10,17 @@
     "gatsby-cli": "^2.12.111",
     "gatsby-image": "^2.4.16",
     "gatsby-plugin-google-analytics": "^2.3.19",
+    "gatsby-plugin-google-tagmanager": "^2.3.16",
     "gatsby-plugin-manifest": "^2.4.23",
     "gatsby-plugin-offline": "^3.2.23",
     "gatsby-plugin-react-helmet": "^3.3.10",
-    "gatsby-plugin-scroll-reveal": "^0.0.7",
+    "gatsby-plugin-s3": "^0.3.8",
     "gatsby-plugin-sharp": "^2.6.27",
     "gatsby-plugin-styled-components": "^3.3.10",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.3.24",
     "gatsby-transformer-sharp": "^2.5.13",
+    "lottie-colorify": "^0.7.0",
     "lottie-web": "^5.7.3",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -49,7 +51,8 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \"",
+    "deploy": "gatsby-plugin-s3 deploy"
   },
   "repository": {
     "type": "git",

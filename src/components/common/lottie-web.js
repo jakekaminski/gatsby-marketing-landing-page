@@ -1,11 +1,11 @@
 import React, { useEffect, createRef } from "react";
-import lottie from "lottie-web";
+import Lottie from "lottie-web";
 
 const LottieWeb = (props) => {
   let animationContainer = createRef();
 
   useEffect(() => {
-    const anim = lottie.loadAnimation({
+    const anim = Lottie.loadAnimation({
       container: animationContainer.current,
       renderer: "svg",
       loop: (props.loop === "false" ? false : true),
